@@ -1,13 +1,14 @@
-# Experiment 3: SQL Aggregate Functions, CASE, HAVING, DISTINCT, and Subqueries
+# Experiment 3: SQL Aggregate Functions, CASE, HAVING, DISTINCT, Joins, and Subqueries
 
 ## Objective
-To understand and implement SQL aggregate functions and clauses including `COUNT()`, `CASE`, `HAVING`, `AVG()`, `DISTINCT`, `COUNT(DISTINCT)`, and subqueries using `NOT IN`.
+
+To understand and implement SQL aggregate functions and clauses including `COUNT()`, `CASE`, `HAVING`, `AVG()`, `DISTINCT`, `COUNT(DISTINCT)`, `LEFT JOIN`, and subqueries using `NOT IN`.
 
 ---
 
-## Programs
+# Programs
 
-### 3.1 Count Using CASE
+## 3.1 Count Using CASE
 
 **Aim:** Count the number of students in each department who scored more than 80 marks.
 
@@ -20,9 +21,9 @@ GROUP BY Department;
 
 ---
 
-### 3.2 HAVING Clause and Aggregate Functions
+## 3.2 HAVING Clause and Aggregate Functions
 
-#### (a) Display cities having at least one employee with a salary greater than or equal to 90000.
+### (a) Display cities having at least one employee with a salary greater than or equal to 90000.
 
 ```sql
 SELECT emp_city
@@ -31,7 +32,7 @@ GROUP BY emp_city
 HAVING SUM(CASE WHEN EMP_SALARY >= 90000 THEN 1 ELSE 0 END) > 0;
 ```
 
-#### (b) Find the average employee salary of each city.
+### (b) Find the average employee salary of each city.
 
 ```sql
 SELECT emp_city,
@@ -40,14 +41,14 @@ FROM EMPLOYEES
 GROUP BY emp_city;
 ```
 
-#### (c) Display all distinct employee cities.
+### (c) Display all distinct employee cities.
 
 ```sql
 SELECT DISTINCT EMP_CITY
 FROM EMPLOYEES;
 ```
 
-#### (d) Count the number of distinct employee cities.
+### (d) Count the number of distinct employee cities.
 
 ```sql
 SELECT COUNT(DISTINCT EMP_CITY) AS CNT
@@ -56,7 +57,7 @@ FROM EMPLOYEES;
 
 ---
 
-### 3.3 Customers Who Never Ordered
+## 3.3 Customers Who Never Ordered
 
 **Aim:** Display the names of customers who have never placed an order.
 
@@ -71,17 +72,34 @@ WHERE id NOT IN (
 
 ---
 
-## Learning Outcomes
+## 3.4 Employee Bonus
 
-- Learned to perform conditional counting using the `CASE` statement.
-- Understood the use of the `HAVING` clause for filtering grouped data.
-- Calculated average values using the `AVG()` aggregate function.
-- Retrieved unique records using the `DISTINCT` keyword.
-- Counted unique values using `COUNT(DISTINCT ...)`.
-- Implemented subqueries with `NOT IN` to solve real-world database problems.
+**Aim:** Display the names and bonus of employees whose bonus is less than **1000** or who have **not received any bonus**.
+
+```sql
+SELECT E.name, B.bonus
+FROM Employee E
+LEFT JOIN Bonus B
+ON E.empId = B.empId
+WHERE B.bonus IS NULL OR B.bonus < 1000;
+```
 
 ---
 
-## Conclusion
+# Learning Outcomes
 
-This experiment helped in understanding SQL aggregate functions, conditional expressions, grouping, filtering grouped records, retrieving distinct values, and writing subqueries. These concepts are essential for analyzing and querying relational databases efficiently.
+- Learned to perform conditional counting using the `CASE` statement.
+- Understood the use of the `HAVING` clause for filtering grouped data.
+- Calculated averages using the `AVG()` aggregate function.
+- Retrieved unique records using the `DISTINCT` keyword.
+- Counted unique values using `COUNT(DISTINCT ...)`.
+- Implemented subqueries using `NOT IN`.
+- Understood the use of `LEFT JOIN` to combine data from multiple tables.
+- Learned to use `IS NULL` to identify unmatched records.
+- Applied conditional filtering using logical operators such as `OR`.
+
+---
+
+# Conclusion
+
+This experiment helped in understanding SQL aggregate functions, conditional expressions, grouping, filtering grouped records, retrieving distinct values, joins, and subqueries. These SQL concepts are essential for querying and analyzing relational databases efficiently and are widely used in real-world database applications.
