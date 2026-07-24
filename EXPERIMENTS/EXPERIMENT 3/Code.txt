@@ -33,3 +33,9 @@ WHERE id NOT IN (
     SELECT customerId 
     FROM Orders
 );
+
+3.4
+SELECT E.name, B.bonus 
+FROM Employee E
+LEFT JOIN Bonus B ON E.empId = B.empId
+WHERE B.bonus IS NULL OR B.bonus < 1000;
