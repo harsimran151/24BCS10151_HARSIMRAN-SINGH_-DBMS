@@ -32,10 +32,6 @@ INNER JOIN orders o
 ON p.product_name = o.product_name;
 ```
 
-**Output**
-
-> *(Insert Screenshot: 4.1.png)*
-
 ---
 
 ### 4.2 INNER JOIN and LEFT JOIN using Student and Course Tables
@@ -53,10 +49,6 @@ FROM student s
 LEFT JOIN course c
 ON s.Course_id = c.Course_id;
 ```
-
-**Output**
-
-> *(Insert Screenshot: 4.2.png)*
 
 ---
 
@@ -103,10 +95,6 @@ LEFT JOIN categories c
 ON c.category_id = p.category_id;
 ```
 
-**Output**
-
-> *(Insert Screenshot: 4.3.png)*
-
 ---
 
 ### 4.4 FULL OUTER JOIN
@@ -119,10 +107,6 @@ FROM student s1
 FULL OUTER JOIN course c1
 ON s1.Course_id = c1.Course_id;
 ```
-
-**Output**
-
-> *(Insert Screenshot: 4.4.png)*
 
 ---
 
@@ -150,10 +134,6 @@ SELECT customer_name,
 FROM customers c
 CROSS JOIN products p;
 ```
-
-**Output**
-
-> *(Insert Screenshot: 4.5.png)*
 
 ---
 
@@ -190,10 +170,6 @@ ON s1.Course_id = s2.Course_id
 AND s1.St_id <> s2.St_id
 ORDER BY s1.Course_id;
 ```
-
-**Output**
-
-> *(Insert Screenshot: 4.6.png)*
 
 ---
 
