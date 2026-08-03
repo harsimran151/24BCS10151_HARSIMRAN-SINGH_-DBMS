@@ -1,153 +1,166 @@
-# EXPERIMENT 4 - JOIN Operations
+SQL Intermediate - JOIN Operations
 
-## Objective
-To understand and implement different types of SQL JOIN operations by solving practical database queries involving multiple related tables. This experiment focuses on retrieving, combining, and analyzing data using various JOIN techniques.
+Objective
 
----
+To understand and implement different SQL JOIN operations through practical experiments.
 
-## Learning Outcomes
+Experiment 1: INNER JOIN & LEFT JOIN Practice
 
-After completing these experiments, I was able to:
+Screenshot
 
-- Understand the concept of relational databases.
-- Perform INNER JOIN to retrieve matching records.
-- Use LEFT JOIN to include unmatched records from the left table.
-- Implement FULL OUTER JOIN to retrieve all records from both tables.
-- Apply SELF JOIN to compare rows within the same table.
-- Use CROSS JOIN to generate Cartesian products.
-- Retrieve meaningful information by combining multiple related tables.
-- Write optimized SQL queries using aliases and JOIN conditions.
 
----
 
-# Experiments
+Solution
 
-## Experiment 4.1: INNER JOIN & LEFT JOIN Practice
+-- Customers and Orders
+SELECT c.customer_name, o.order_date
+FROM customers c
+INNER JOIN orders o
+ON c.customer_id = o.customer_id;
 
-### Objective
-- Retrieve customers who have placed orders.
-- Display all customers along with their orders.
-- Find products that have been ordered.
+-- All Customers and Their Orders
+SELECT c.customer_name, o.product_name
+FROM customers c
+LEFT JOIN orders o
+ON c.customer_id = o.customer_id;
 
-### JOINs Used
-- INNER JOIN
-- LEFT JOIN
+-- Products and Their Orders
+SELECT p.product_name, o.order_date
+FROM products p
+INNER JOIN orders o
+ON p.product_name = o.product_name;
 
-### Tables Used
-- Customers
-- Orders
-- Products
+Experiment 2: Student & Course JOIN
 
----
+Screenshot
 
-## Experiment 4.2: Student and Course JOIN
 
-### Objective
-- Join Student and Course tables.
-- Compare INNER JOIN and LEFT JOIN results.
 
-### JOINs Used
-- INNER JOIN
-- LEFT JOIN
+Solution
 
-### Tables Used
-- Student
-- Course
+SELECT *
+FROM student s
+INNER JOIN course c
+ON s.Course_id = c.Course_id;
 
----
+SELECT *
+FROM student s
+LEFT JOIN course c
+ON s.Course_id = c.Course_id;
 
-## Experiment 4.3: Practical JOIN Problems
+Experiment 3: JOIN Practice-2
 
-### Objective
-- Display customer details for each order.
-- Retrieve products with their categories.
-- Display category names along with product details.
+Screenshot
 
-### JOINs Used
-- INNER JOIN
-- LEFT JOIN
 
-### Tables Used
-- Customers
-- Orders
-- Products
-- Categories
 
----
+Solution
 
-## Experiment 4.4: FULL OUTER JOIN
+SELECT c.customer_name, o.order_id, c.customer_id,
+       o.product_name, o.order_date, o.quantity
+FROM orders o
+INNER JOIN customers c
+ON o.customer_id = c.customer_id;
 
-### Objective
-Retrieve all records from both Student and Course tables, including matching and non-matching records.
+SELECT p.product_name, c.category_name
+FROM products p
+LEFT JOIN categories c
+ON p.category_id = c.category_id;
 
-### JOIN Used
-- FULL OUTER JOIN
+SELECT c.category_name, p.product_name, p.price
+FROM products p
+LEFT JOIN categories c
+ON c.category_id = p.category_id;
 
-### Tables Used
-- Student
-- Course
+Experiment 4: FULL OUTER JOIN
 
----
+Screenshot
 
-## Experiment 4.5: SELF JOIN & CROSS JOIN
 
-### Objective
 
-- Display employees along with their managers using SELF JOIN.
-- Generate every possible combination of customers and products using CROSS JOIN.
+Solution
 
-### JOINs Used
-- SELF JOIN
-- CROSS JOIN
+SELECT *
+FROM student AS s1
+FULL OUTER JOIN course AS c1
+ON s1.Course_id = c1.Course_id;
 
-### Tables Used
-- Employees
-- Customers
-- Products
+Experiment 5: SELF JOIN & CROSS JOIN
 
----
+Screenshot
 
-## Experiment 4.6: SELF JOIN Practice
 
-### Objective
 
-- Find students belonging to the same department.
-- Identify students having the same favourite course.
+Solution
 
-### JOIN Used
-- SELF JOIN
+SELECT e1.employee_name AS Employee,
+       e2.employee_name AS Manager
+FROM employees e1
+LEFT JOIN employees e2
+ON e1.manager_id = e2.employee_id;
 
-### Tables Used
-- Student
+SELECT customer_name, product_name
+FROM customers c
+CROSS JOIN products p;
 
----
+Experiment 6: SELF JOIN Practice
 
-# SQL JOIN Summary
+Screenshot
 
-| JOIN Type | Purpose |
-|-----------|---------|
-| INNER JOIN | Returns only matching rows from both tables. |
-| LEFT JOIN | Returns all rows from the left table and matching rows from the right table. |
-| RIGHT JOIN | Returns all rows from the right table and matching rows from the left table. |
-| FULL OUTER JOIN | Returns all rows from both tables with NULLs where no match exists. |
-| CROSS JOIN | Produces every possible combination of rows from two tables. |
-| SELF JOIN | Joins a table with itself to compare rows or represent hierarchical relationships. |
 
----
 
-# Concepts Practiced
+Solution
 
-- Table Aliases
-- Primary & Foreign Keys
-- Join Conditions
-- Data Retrieval from Multiple Tables
-- Hierarchical Data Queries
-- Cartesian Product
-- Employee-Manager Relationships
-- Self Comparison of Records
+SELECT s1.St_id,
+       s1.St_Name,
+       s1.Department,
+       s2.St_id,
+       s2.St_Name,
+       s2.Department
+FROM student s1
+INNER JOIN student s2
+ON s1.Department = s2.Department
+AND s1.St_id != s2.St_id;
 
----
+SELECT s1.St_id,
+       s1.St_Name,
+       s1.Course_id
+FROM student s1
+INNER JOIN student s2
+ON s1.Course_id = s2.Course_id
+AND s1.St_id != s2.St_id
+ORDER BY s1.Course_id;
 
-# Conclusion
+SQL JOIN Summary
 
-Successfully implemented and practiced various SQL JOIN operations including INNER JOIN, LEFT JOIN, FULL OUTER JOIN, CROSS JOIN, and SELF JOIN. These experiments strengthened the understanding of relational database concepts, table relationships, and efficient data retrieval techniques using SQL.
+JOIN Type
+
+Description
+
+INNER JOIN
+
+Matching records only
+
+LEFT JOIN
+
+All left records + matching right
+
+RIGHT JOIN
+
+All right records + matching left
+
+FULL OUTER JOIN
+
+All records from both tables
+
+CROSS JOIN
+
+Cartesian product
+
+SELF JOIN
+
+Join a table with itself
+
+Conclusion
+
+These experiments demonstrate the practical use of SQL JOIN operations for combining and analyzing relational data.
