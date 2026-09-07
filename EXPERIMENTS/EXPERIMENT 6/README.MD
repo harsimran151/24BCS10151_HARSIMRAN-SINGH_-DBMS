@@ -1,10 +1,6 @@
 # Experiment 6: Views and Materialized Views
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/blob/main/EXPERIMENTS/EXPERIMENT%206/README.MD#experiment-6-views-and-materialized-views)
-
 ## Objective
-
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/blob/main/EXPERIMENTS/EXPERIMENT%206/README.MD#objective)
 
 To understand and implement SQL views and materialized views in
 PostgreSQL, including creating views, retrieving data from views,
@@ -15,11 +11,7 @@ with and without initial data, and refreshing materialized views.
 
 ## Programs
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/blob/main/EXPERIMENTS/EXPERIMENT%206/README.MD#programs)
-
 ### 6.1 Create, Retrieve, and Delete Data Using a View
-
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/blob/main/EXPERIMENTS/EXPERIMENT%206/README.MD#61-create-retrieve-and-delete-data-using-a-view)
 
 **Aim:** Create a view containing selected employee details, retrieve
 records from the view, and delete a record through the view.
@@ -80,8 +72,6 @@ table.
 ------------------------------------------------------------------------
 
 ### 6.2 Create and Refresh a Materialized View
-
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/blob/main/EXPERIMENTS/EXPERIMENT%206/README.MD#62-create-and-refresh-a-materialized-view)
 
 **Aim:** Create materialized views with and without initial data and
 refresh a materialized view to update its stored results.
@@ -168,8 +158,6 @@ be refreshed.
 
 ## Learning Outcomes
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/blob/main/EXPERIMENTS/EXPERIMENT%206/README.MD#learning-outcomes)
-
 -   Understood the concept and purpose of SQL views.
 -   Learned how to create a view using `CREATE VIEW`.
 -   Learned how to retrieve data using `SELECT` from a view.
@@ -186,8 +174,6 @@ be refreshed.
 ------------------------------------------------------------------------
 
 ## Conclusion
-
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/blob/main/EXPERIMENTS/EXPERIMENT%206/README.MD#conclusion)
 
 This experiment provided practical knowledge of views and materialized
 views in PostgreSQL. The programs demonstrated how to create and query a
