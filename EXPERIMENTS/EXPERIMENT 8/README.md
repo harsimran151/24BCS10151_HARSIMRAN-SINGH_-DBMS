@@ -1,10 +1,10 @@
 # Experiment 8: Stored Procedure and Exception Handling in PostgreSQL
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#experiment-8-stored-procedure-and-exception-handling-in-postgresql)
+(https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#experiment-8-stored-procedure-and-exception-handling-in-postgresql)
 
 ## Objective
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#objective)
+(https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#objective)
 
 To understand and implement stored procedures in PostgreSQL using `IN`, `OUT`, and `INOUT` parameters, conditional checking, exception handling, and database updates.
 
@@ -12,17 +12,17 @@ To understand and implement stored procedures in PostgreSQL using `IN`, `OUT`, a
 
 ## Programs
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#programs)
+(https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#programs)
 
 ### 8.1 Update Employee Salary Using a Stored Procedure
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#81-update-employee-salary-using-a-stored-procedure)
+(https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#81-update-employee-salary-using-a-stored-procedure)
 
 **Aim:** Create a PostgreSQL stored procedure that identifies an employee using their employee ID, adds the given salary amount to the employee's current salary, updates the `emp` table, and returns a status message.
 
 #### Stored Procedure
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#stored-procedure)
+(https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#stored-procedure)
 
 ```sql
 CREATE OR REPLACE PROCEDURE update_sal_proc1(
@@ -54,19 +54,17 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-**svg**
 
 The procedure `update_sal_proc1` accepts an employee ID through the `p_empid` input parameter, receives the salary amount through the `p_salary` `INOUT` parameter, and returns the execution status through the `status` `OUT` parameter. It first retrieves the employee's current salary from the `emp` table. If no employee is found, an exception is raised. Otherwise, the input salary amount is added to the current salary and the updated value is stored in the table. fileciteturn0file0L1-L5 fileciteturn0file0L11-L23
 
 #### Procedure Call
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#procedure-call)
+(https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#procedure-call)
 
 ```sql
 CALL update_sal_proc1(101, NULL, 5300);
 ```
 
-**svg**
 
 The procedure is called for employee ID `101` with `5300` as the salary amount to be added. The `status` parameter is supplied as `NULL` because it is an `OUT` parameter. fileciteturn0file0L27-L27
 
@@ -78,7 +76,6 @@ status   | p_salary
 Success  | 55300.00
 ```
 
-**svg**
 
 The procedure executes successfully and returns the status as `Success`. The updated salary returned through `p_salary` is `55300.00`.
 
@@ -88,7 +85,7 @@ If the supplied employee ID does not exist in the `emp` table, the procedure rai
 
 ## Key Concepts Used
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#key-concepts-used)
+(https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#key-concepts-used)
 
 - **Stored Procedure:** `update_sal_proc1` encapsulates the salary update logic in a reusable PostgreSQL procedure.
 - **IN Parameter:** `p_empid` receives the employee ID used to identify the employee.
@@ -104,7 +101,7 @@ If the supplied employee ID does not exist in the `emp` table, the procedure rai
 
 ## Learning Outcomes
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#learning-outcomes)
+(https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#learning-outcomes)
 
 - Understood the concept of stored procedures in PostgreSQL.
 - Learned how to use `IN` parameters in a procedure.
@@ -120,6 +117,6 @@ If the supplied employee ID does not exist in the `emp` table, the procedure rai
 
 ## Conclusion
 
-[svg](https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#conclusion)
+(https://github.com/harsimran151/24BCS10151_HARSIMRAN-SINGH_-DBMS/tree/main/EXPERIMENTS/EXPERIMENT%208#conclusion)
 
 This experiment provided practical knowledge of stored procedures and exception handling in PostgreSQL. The procedure identifies an employee using `p_empid`, retrieves the current salary, adds the supplied salary amount, updates the employee record, and returns the updated salary along with a success status. It also demonstrates exception handling by raising `Employee Not Found` when the specified employee does not exist.
