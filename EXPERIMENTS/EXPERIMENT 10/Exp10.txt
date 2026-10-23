@@ -1,0 +1,25 @@
+#10.1
+SELECT MAX(salary)
+FROM employee
+WHERE salary < (SELECT MAX(salary) FROM employee);
+
+SELECT MAX(salary)
+FROM employee
+WHERE salary < (
+    SELECT MAX(salary)
+    FROM employee
+    WHERE salary < (SELECT MAX(salary) FROM employee)
+);
+
+
+#10.2
+select f_name, f_cost, f_type from food
+where f_cost>(select avg(f_cost) from food);
+
+
+#10.3
+select f_name, f_cost, f_type from food
+where f_id in (
+    select f_id from ratings 
+    where f_rating>=4
+)
